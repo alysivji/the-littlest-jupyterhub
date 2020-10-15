@@ -271,7 +271,7 @@ def main():
         run_subprocess(['add-apt-repository', 'universe'])
 
         run_subprocess(['apt-get', 'update', '--yes'])
-        run_subprocess(['apt-get', 'install', '--yes', 
+        run_subprocess(['apt-get', 'install', '--yes',
             'python3',
             'python3-venv',
             'python3-pip',
@@ -292,7 +292,7 @@ def main():
         pip_flags.append('--editable')
     tljh_repo_path = os.environ.get(
         'TLJH_BOOTSTRAP_PIP_SPEC',
-        'git+https://github.com/jupyterhub/the-littlest-jupyterhub.git'
+        'git+https://github.com/alysivji/the-littlest-jupyterhub.git'
     )
 
     # Upgrade pip

@@ -257,8 +257,8 @@ def ensure_user_environment(user_requirements_txt_file):
     logger.info("Setting up user environment...")
 
     miniconda_old_version = '4.5.4'
-    miniconda_new_version = '4.7.10'
-    miniconda_installer_sha256 = "8a324adcc9eaf1c09e22a992bb6234d91a94146840ee6b11c114ecadafc68121"
+    miniconda_new_version = '4.8.3'
+    miniconda_installer_sha256 = "879457af6a0bf5b34b48c12de31d4df0ee2f06a8e68768e5758c3293b2daf688"
 
     if conda.check_miniconda_version(USER_ENV_PREFIX, miniconda_new_version):
         conda_version = '4.8.1'
@@ -271,7 +271,7 @@ def ensure_user_environment(user_requirements_txt_file):
         installer_url = "https://repo.continuum.io/miniconda/Miniconda3-{}-Linux-x86_64.sh".format(miniconda_new_version)
         with conda.download_miniconda_installer(installer_url, miniconda_installer_sha256) as installer_path:
             conda.install_miniconda(installer_path, USER_ENV_PREFIX)
-        conda_version = '4.8.1'
+        conda_version = '4.8.3'
 
     conda.ensure_conda_packages(USER_ENV_PREFIX, [
         # Conda's latest version is on conda much more so than on PyPI.
