@@ -1,6 +1,7 @@
 """
 Wrap conda commandline program
 """
+import logging
 import os
 import subprocess
 import json
@@ -10,6 +11,8 @@ import tempfile
 import requests
 from distutils.version import LooseVersion as V
 from tljh import utils
+
+logger = logging.getLogger("tljh")
 
 
 def sha256_file(fname):
@@ -53,6 +56,7 @@ def download_miniconda_installer(installer_url, sha256sum):
         with open(f.name, 'wb') as f:
             f.write(requests.get(installer_url).content)
 
+        logger.info(sha256_file(f.name))
         # if sha256_file(f.name) != sha256sum:
             # raise Exception('sha256sum hash mismatch! Downloaded file corrupted')
 
