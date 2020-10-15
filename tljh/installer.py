@@ -268,8 +268,8 @@ def ensure_user_environment(user_requirements_txt_file):
     else:
         logger.info('Downloading & setting up user environment...')
         # FIXME: allow using miniforge
-        import pdb; pdb.set_trace()
         installer_url = "https://repo.continuum.io/miniconda/Miniconda3-{}-Linux-x86_64.sh".format(miniconda_new_version)
+        logger.info(installer_url)
         with conda.download_miniconda_installer(installer_url, miniconda_installer_sha256) as installer_path:
             logger.info(installer_path)
             conda.install_miniconda(installer_path, USER_ENV_PREFIX)
